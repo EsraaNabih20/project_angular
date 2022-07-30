@@ -1,0 +1,21 @@
+<!-- <div class="card" style="width: 18rem;">
+    <img src="../../assets/2.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
+
+  
+<div class="w-75 m-auto mb-5">
+  <label for="nationalIdBirthYear" class="mb-3 text-danger fw-bold fs-5">Enter Your National Id</label>
+  <input type="text" class="form-control mb-3" id="nationalIdBirthYear" [(ngModel)]="userNationalId">
+  <p class="text-primary fw-bold fs-5">Birth Date: {{userNationalId | nationalID}}</p>
+</div>
+
+<div class="w-75 m-auto mb-5">
+  <label for="nationalIdBirthYears" class="mb-3 text-danger fw-bold fs-5">Enter credit Card</label>
+  <input type="text" class="form-control mb-3" id="nationalIdBirthYears" [(ngModel)]="userCreditCardNumber">
+  <p class="text-primary fw-bold fs-5">credit card: {{userCreditCardNumber | creditCard}}</p>
+</div>

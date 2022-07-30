@@ -1,0 +1,30 @@
+<div>
+    <label for="cat" class="form-label">Category Of Product:</label>
+    <select class="form-control" id="cat" [(ngModel)]="catselcted">
+        <option value="0">All</option>
+        <option *ngFor="let cat of catlist" [value]="cat.ID">{{cat.Name}}</option>
+    </select>
+</div>
+<app-products [receivedCatId]="catselcted" (allCatData)="Retdata($event)" (totalPriceChanged)="onTotalPriceChanged($event)"></app-products>
+
+<table class="table text-center mb-5">
+    <thead class="table-dark">
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Count</td>
+            <td>Remove</td>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cat of catrecived">
+        <td>{{cat.Name}}</td>
+        <td>{{cat.Price}}</td>
+        <td>{{cat.Count}}</td>
+        <td><button class="btn btn-danger">Remove</button></td>
+      </tr>
+    </tbody>
+    <tfoot class="table-dark">
+      <tr><td>Total: {{price}} </td></tr>
+    </tfoot>
+</table>

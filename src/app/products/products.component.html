@@ -1,0 +1,52 @@
+<!-- <h1>{{storeInfClass.name}}</h1>
+<img src="{{storeInfClass.logo}}">
+<ul>
+    <li *ngFor="let i of storeInfClass.branches">{{i}}</li>
+</ul> -->
+
+
+<table class="table text-center mb-5">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Img</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">CateogryID</th>
+      <th scope="col">Date Now</th>
+      <th scope="col">count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of productListCat ; let i = index" [hidden]="item.Quantity==0"
+    [ngClass]="{'bg-warning':item.Quantity == 1, 'text-primary':item.Quantity > 1}">
+      <td>{{i+1}}</td>
+      <td>{{item.Name}}</td>
+      <td>{{item.Price|currency:'EGP':'code'}}</td>
+      <td><img width="20%" [src]="item.Img"></td>
+      <td>{{item.Quantity}}</td>
+       <!-- <ng-container [ngSwitch]="item.Quantity">
+        <ng-container *ngSwitchCase="0">Out Of Stock</ng-container>
+        <ng-container *ngSwitchCase="1">Last Item</ng-container>
+        <ng-container *ngSwitchCase="2">Last Two Item</ng-container>
+        <ng-container *ngSwitchDefault>{{item.Quantity}}</ng-container>
+      </ng-container> -->
+      <td>{{item.CategoryID}}</td>
+      <td>{{datenow|date:'mediumDate'}}</td>
+      <td><input type="number" name="count" #itemcount></td>
+      <td><button appProductCard  class="btn btn-success" (click)="updateTotalPrice(item.Price,itemcount.value)" (click)="getcatdata(item.Name,item.Price,itemcount.value)" (click)="increaseQuantity(item , itemcount.value)">Buy</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+    <img src="{{storeInfClass.logo}}" *ngIf="image" class="card-img-top" style="width: 400px;">
+    <h6 class="card-title text-danger" *ngIf="msg">{{"thanks for purchasing from our store "}}</h6>
+    <button class="btn btn-success" (click)="toggle()">Buy</button>
+    
